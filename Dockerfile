@@ -5,7 +5,6 @@ RUN apt-get -qq update && apt-get install -y sudo
 RUN apt-get -qq install postgresql postgresql-contrib
 
 # /etc/ssl/private can't be accessed from within container for some reason
-# (@andrewgodwin says it's something AUFS related)
 RUN mkdir /etc/ssl/private-copy; mv /etc/ssl/private/* /etc/ssl/private-copy/; rm -r /etc/ssl/private; mv /etc/ssl/private-copy /etc/ssl/private; chmod -R 0700 /etc/ssl/private; chown -R postgres /etc/ssl/private
 
 ADD postgresql.conf /etc/postgresql/9.5/main/postgresql.conf
