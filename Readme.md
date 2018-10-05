@@ -5,9 +5,20 @@ docker-postgresql-ubuntu
 
 PostgreSQL 9.5 for Docker with Ubuntu .
 
+How to run it? 
+
+```bash
     $ docker run -d -p 5432:5432 -e POSTGRESQL_USER=test -e POSTGRESQL_PASS=PASSWORD -e POSTGRESQL_DB=test kzybala/postgresql
+```
+Result:
+
+```bash		
     d123a80cz3469645bnv645234981545f
-    
+```    
+
+How to log to database ?
+
+```bash
     $ psql -h localhost -U test test
     Password for user test:
     psql (9.5.10)
@@ -15,7 +26,7 @@ PostgreSQL 9.5 for Docker with Ubuntu .
     Type "help" for help.    
     
     test=#
-
+```
 ## Environment variables
 
  - `POSTGRESQL_DB`: A database that is automatically created if it doesn't exist. Default: `docker`
